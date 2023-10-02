@@ -1,8 +1,8 @@
 extends Node2D
 
 
-@onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
-@onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
+#@onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
+#@onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
 @onready var level_completed = $CanvasLayer/LevelCompleted
 
 
@@ -13,10 +13,12 @@ extends Node2D
 # 4강: 더블 점프, 벽 점프 구현
 # 5강: 함정 - 레이어 충돌
 # 6강: 게임의 목표, 클리어 추가
+# 7강: Autotile
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	polygon_2d.polygon = collision_polygon_2d.polygon
+#   collision ploygon 은 tile 추가하면서 삭제함 -> tilemap이 자체적으로 충돌판정 가지고 있는 듯
+#	polygon_2d.polygon = collision_polygon_2d.polygon
 	Events.level_completed.connect(show_level_completed)
 	
 
