@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://eb6b7y6bjeqy"]
+
+[ext_resource type="Script" path="res://tscn/world.gd" id="1_f4at8"]
+[ext_resource type="PackedScene" uid="uid://b7ob5b0k3dpty" path="res://Player/player.tscn" id="2_3rf4t"]
+[ext_resource type="PackedScene" uid="uid://bnhhquj75lhlp" path="res://Spike/spike.tscn" id="3_l4jpy"]
+[ext_resource type="PackedScene" uid="uid://bgcvtid32m7xp" path="res://Heart/heart.tscn" id="4_3ovtk"]
+[ext_resource type="PackedScene" uid="uid://ml1pnkwnmumt" path="res://LevelCompleted/level_completed.tscn" id="5_r2paw"]
+[ext_resource type="PackedScene" uid="uid://iufp2ei8lko5" path="res://Tiles/level_tile_map.tscn" id="6_o3eyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bv7x"]
+size = Vector2(20, 74)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_f4at8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 120, 48, 120, 80, 120, 104, 144, 128, 152, 136, 128, 152, 128, 152, 160, 177, 160, 177, 128, 200, 120, 200, 136, 224, 136, 243, 124, 258, 124, 264, 160, 304, 160, 304, 120, 304, 0, 320, 0, 320, 184, 0, 184)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_3rf4t")]
+position = Vector2(33, 119)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(250, 24)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(9, 13)
+shape = SubResource("RectangleShape2D_1bv7x")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/CollisionShape2D"]
+offset_left = -10.0
+offset_top = -37.0
+offset_right = 10.0
+offset_bottom = 37.0
+
+[node name="Spike" parent="." instance=ExtResource("3_l4jpy")]
+position = Vector2(161, 152)
+
+[node name="Spike2" parent="." instance=ExtResource("3_l4jpy")]
+position = Vector2(169, 152)
+
+[node name="Spike3" parent="." instance=ExtResource("3_l4jpy")]
+position = Vector2(272, 152)
+
+[node name="Spike5" parent="." instance=ExtResource("3_l4jpy")]
+position = Vector2(288, 152)
+
+[node name="Spike6" parent="." instance=ExtResource("3_l4jpy")]
+position = Vector2(296, 152)
+
+[node name="Heart" parent="." instance=ExtResource("4_3ovtk")]
+position = Vector2(144, 120)
+
+[node name="Heart5" parent="." instance=ExtResource("4_3ovtk")]
+position = Vector2(33, 69)
+
+[node name="Heart2" parent="." instance=ExtResource("4_3ovtk")]
+position = Vector2(288, 56)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_r2paw")]
+visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_o3eyx")]
