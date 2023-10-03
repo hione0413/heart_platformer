@@ -19,6 +19,7 @@ extends Node2D
 # 7: Autotile
 # 8: Level transitions and inherited scenes
 # 9: Controller support
+#10: Start menu
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
