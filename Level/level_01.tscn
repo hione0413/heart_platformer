@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnt5l5avenh0n"]
+
+[ext_resource type="PackedScene" uid="uid://eb6b7y6bjeqy" path="res://tscn/world.tscn" id="1_f0edm"]
+[ext_resource type="PackedScene" uid="uid://br6tmehgvk5ca" path="res://Level/level_02.tscn" id="2_e2lou"]
+[ext_resource type="PackedScene" uid="uid://bnhhquj75lhlp" path="res://Spike/spike.tscn" id="2_g147s"]
+[ext_resource type="PackedScene" uid="uid://bgcvtid32m7xp" path="res://Heart/heart.tscn" id="3_1to5m"]
+[ext_resource type="PackedScene" uid="uid://iufp2ei8lko5" path="res://Tiles/level_tile_map.tscn" id="4_cxkk0"]
+
+[node name="Level_01" instance=ExtResource("1_f0edm")]
+next_level = ExtResource("2_e2lou")
+
+[node name="Spike" parent="." index="3" instance=ExtResource("2_g147s")]
+position = Vector2(152, 152)
+
+[node name="Spike2" parent="." index="4" instance=ExtResource("2_g147s")]
+position = Vector2(169, 152)
+
+[node name="Spike3" parent="." index="5" instance=ExtResource("2_g147s")]
+position = Vector2(264, 152)
+
+[node name="Spike5" parent="." index="6" instance=ExtResource("2_g147s")]
+position = Vector2(280, 152)
+
+[node name="Spike6" parent="." index="7" instance=ExtResource("2_g147s")]
+position = Vector2(296, 152)
+
+[node name="Heart" parent="." index="8" instance=ExtResource("3_1to5m")]
+position = Vector2(144, 120)
+
+[node name="Heart5" parent="." index="9" instance=ExtResource("3_1to5m")]
+position = Vector2(33, 69)
+
+[node name="Heart2" parent="." index="10" instance=ExtResource("3_1to5m")]
+position = Vector2(288, 56)
+
+[node name="LevelTileMap2" parent="." index="11" instance=ExtResource("4_cxkk0")]
+layer_0/tile_data = PackedInt32Array(0, 131072, 0, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 262144, 131072, 1, 327680, 131072, 1, 393216, 131072, 1, 458752, 131072, 1, 589824, 65536, 1, 524289, 65536, 0, 524290, 131072, 0, 589827, 65536, 0, 589826, 327680, 2, 655360, 65536, 1, 720896, 65536, 2, 720897, 65536, 2, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 65536, 2, 655379, 393216, 2, 655378, 65536, 0, 655377, 65536, 0, 655376, 65536, 0, 655375, 327680, 2, 655374, 65536, 1, 655372, 65536, 1, 655371, 393216, 2, 655370, 65536, 0, 655369, 65536, 0, 655368, 327680, 2, 655367, 65536, 1, 655365, 65536, 1, 655364, 65536, 1, 655363, 65536, 1, 655362, 65536, 1, 655361, 65536, 1, 589843, 0, 1, 524307, 0, 1, 458771, 0, 1, 393235, 0, 1, 327699, 0, 1, 262163, 0, 1, 196627, 0, 1, 131091, 0, 1, 65555, 0, 1, 19, 0, 0, 589837, 65536, 0, 589836, 65536, 0, 589838, 65536, 0, 589839, 458752, 2, 720909, 65536, 2, 655373, 65536, 1, 589825, 65536, 1, 589828, 65537, 0, 524288, 327680, 2, 589829, 524288, 2, 589835, 262144, 2, 524299, 196608, 0, 15, 131072, 0, 196623, 131072, 1, 131087, 131072, 1, 65551, 131072, 1, 14, 0, 0, 65550, 0, 1, 131086, 0, 1, 196622, 0, 1, 262158, 0, 2, 262159, 131072, 2, 20, 131072, 0, 65556, 131072, 1, 131092, 131072, 1, 196628, 131072, 1, 262164, 131072, 1, 458772, 131072, 1, 524308, 131072, 1, 589844, 131072, 1, 655380, 131072, 1, 720916, 131072, 2, 393236, 131072, 1, 327700, 131072, 1, 65535, 0, 0, 131071, 0, 1, 196607, 0, 1, 262143, 0, 1, 327679, 0, 1, 393215, 0, 1, 458751, 0, 1, 524287, 0, 1, 589823, 0, 1, 655359, 0, 1, 720895, 0, 1, 786431, 0, 2, 589830, 65536, 0, 589832, 131072, 0, 589831, 65536, 0, 524303, 196608, 0, 524302, 262145, 0, 524301, 196609, 0, 524293, 196608, 0, 655366, 65536, 1, 524292, 1, 0)
+layer_1/tile_data = PackedInt32Array(524295, 196610, 0, 524294, 131074, 0, 524293, 65536, 0, 524292, 1, 0, 589830, 65536, 1, 589829, 65536, 1, 589831, 327682, 0, 589838, 65536, 1, 589839, 131072, 1, 524303, 131072, 0, 589837, 327681, 0)

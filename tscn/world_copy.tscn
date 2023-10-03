@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfxlo6ash0akw"]
+
+[ext_resource type="Script" path="res://tscn/world.gd" id="1_wmuac"]
+[ext_resource type="PackedScene" uid="uid://b7ob5b0k3dpty" path="res://Player/player.tscn" id="2_eql1j"]
+[ext_resource type="PackedScene" uid="uid://bnhhquj75lhlp" path="res://Spike/spike.tscn" id="3_jewhq"]
+[ext_resource type="PackedScene" uid="uid://bgcvtid32m7xp" path="res://Heart/heart.tscn" id="4_w2w04"]
+[ext_resource type="PackedScene" uid="uid://ml1pnkwnmumt" path="res://LevelCompleted/level_completed.tscn" id="5_bbjhv"]
+[ext_resource type="PackedScene" uid="uid://iufp2ei8lko5" path="res://Tiles/level_tile_map.tscn" id="6_g0bbc"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_wmuac")
+
+[node name="Player" parent="." instance=ExtResource("2_eql1j")]
+position = Vector2(33, 119)
+
+[node name="Spike" parent="." instance=ExtResource("3_jewhq")]
+position = Vector2(152, 152)
+
+[node name="Spike2" parent="." instance=ExtResource("3_jewhq")]
+position = Vector2(169, 152)
+
+[node name="Spike3" parent="." instance=ExtResource("3_jewhq")]
+position = Vector2(264, 152)
+
+[node name="Spike5" parent="." instance=ExtResource("3_jewhq")]
+position = Vector2(280, 152)
+
+[node name="Spike6" parent="." instance=ExtResource("3_jewhq")]
+position = Vector2(296, 152)
+
+[node name="Heart" parent="." instance=ExtResource("4_w2w04")]
+position = Vector2(144, 120)
+
+[node name="Heart5" parent="." instance=ExtResource("4_w2w04")]
+position = Vector2(33, 69)
+
+[node name="Heart2" parent="." instance=ExtResource("4_w2w04")]
+position = Vector2(288, 56)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_bbjhv")]
+visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_g0bbc")]
+layer_0/tile_data = PackedInt32Array(0, 131072, 0, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 262144, 131072, 1, 327680, 131072, 1, 393216, 131072, 1, 458752, 131072, 1, 589824, 65536, 1, 524289, 65536, 0, 524290, 131072, 0, 589827, 65536, 0, 589826, 327680, 2, 655360, 65536, 1, 720896, 65536, 2, 720897, 65536, 2, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 65536, 2, 655379, 393216, 2, 655378, 65536, 0, 655377, 65536, 0, 655376, 65536, 0, 655375, 327680, 2, 655374, 65536, 1, 655372, 65536, 1, 655371, 393216, 2, 655370, 65536, 0, 655369, 65536, 0, 655368, 327680, 2, 655367, 65536, 1, 655365, 65536, 1, 655364, 65536, 1, 655363, 65536, 1, 655362, 65536, 1, 655361, 65536, 1, 589843, 0, 1, 524307, 0, 1, 458771, 0, 1, 393235, 0, 1, 327699, 0, 1, 262163, 0, 1, 196627, 0, 1, 131091, 0, 1, 65555, 0, 1, 19, 0, 0, 589837, 65536, 0, 589836, 65536, 0, 589838, 65536, 0, 589839, 458752, 2, 720909, 65536, 2, 655373, 65536, 1, 589825, 65536, 1, 589828, 65537, 0, 524288, 327680, 2, 589829, 524288, 2, 589835, 262144, 2, 524299, 196608, 0, 15, 131072, 0, 196623, 131072, 1, 131087, 131072, 1, 65551, 131072, 1, 14, 0, 0, 65550, 0, 1, 131086, 0, 1, 196622, 0, 1, 262158, 0, 2, 262159, 131072, 2, 20, 131072, 0, 65556, 131072, 1, 131092, 131072, 1, 196628, 131072, 1, 262164, 131072, 1, 458772, 131072, 1, 524308, 131072, 1, 589844, 131072, 1, 655380, 131072, 1, 720916, 131072, 2, 393236, 131072, 1, 327700, 131072, 1, 65535, 0, 0, 131071, 0, 1, 196607, 0, 1, 262143, 0, 1, 327679, 0, 1, 393215, 0, 1, 458751, 0, 1, 524287, 0, 1, 589823, 0, 1, 655359, 0, 1, 720895, 0, 1, 786431, 0, 2, 589830, 65536, 0, 589832, 131072, 0, 589831, 65536, 0, 524303, 196608, 0, 524302, 262145, 0, 524301, 196609, 0, 524293, 196608, 0, 655366, 65536, 1, 524292, 1, 0)
+layer_1/tile_data = PackedInt32Array(524295, 196610, 0, 524294, 131074, 0, 524293, 65536, 0, 524292, 1, 0, 589830, 65536, 1, 589829, 65536, 1, 589831, 327682, 0, 589838, 65536, 1, 589839, 131072, 1, 524303, 131072, 0, 589837, 327681, 0)
