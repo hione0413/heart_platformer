@@ -88,13 +88,14 @@ size = Vector2(6, 12)
 collision_layer = 3
 floor_constant_speed = true
 floor_snap_length = 3.0
+safe_margin = 0.1
 script = ExtResource("1_2g6y5")
 movement_data = ExtResource("2_3oq1g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_e1wcq")
-animation = &"jump"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7.5)

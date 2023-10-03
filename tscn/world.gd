@@ -18,6 +18,7 @@ extends Node2D
 # 6: 게임의 목표, 클리어 추가
 # 7: Autotile
 # 8: Level transitions and inherited scenes
+# 9: Controller support
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
