@@ -13,7 +13,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 
-
+# My Plan
 # 1: 기본적인 필드 및 플레이어 생성
 # 2: 코요테 점프 구현
 # 3: 플레이어 이동 데이터 객체 분리
@@ -26,7 +26,10 @@ extends Node2D
 #10: Start menu
 #11: UI Theme
 #12: Wall jump fix
-#13: game start countdown
+#13: game start countdown 23/10/15 finish
+#14: Level Timer 23/10/15 finish
+
+
 
 func _ready():
 #	RenderingServer.set_default_clear_color(Color.BLACK)
