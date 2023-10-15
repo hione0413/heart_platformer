@@ -20,6 +20,8 @@ extends Node2D
 # 8: Level transitions and inherited scenes
 # 9: Controller support
 #10: Start menu
+#11: UI Theme
+#12: Wall jump fix
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
@@ -33,6 +35,10 @@ func show_level_completed():
 #   다음 레벨 없으면 return
 	if not next_level is PackedScene: return
 	get_tree().paused = true
+	
+	# 레벨 클리어 후 잠시 멈춤
+	await get_tree().create_timer(0.5).timeout
+	
 	await LevelTransition.fade_to_black()
 #   다음레벨로 넘어감
 	get_tree().paused = false
