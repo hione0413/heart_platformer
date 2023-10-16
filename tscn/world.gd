@@ -32,10 +32,15 @@ var start_level_msec = 0.0
 #12: Wall jump fix
 #13: game start countdown 23/10/15 finish
 #14: Level Timer 23/10/16 finish
-
+#15: Victory screen
 
 
 func _ready():
+	# 다음 스테이지 없음 - 마지막 스테이지
+	if not next_level is PackedScene:
+		level_completed.next_level_button.text = "Victory Screen"
+		next_level = load("res://VictoryScreen/victory_screen.tscn")
+	
 #	RenderingServer.set_default_clear_color(Color.BLACK)
 #	polygon_2d.polygon = collision_polygon_2d.polygon
 	Events.level_completed.connect(show_level_completed)
@@ -88,7 +93,6 @@ func show_level_completed():
 func _on_level_completed_retry():
 	retry()
 
-
+# level_completed 가 가진 next_level(button) 시그널에서 신호를 받으면 동작
 func _on_level_completed_next_level():
-	# level_completed 가 가진 next_level(button) 시그널에서 신호를 받는다
 	go_to_next_level()
