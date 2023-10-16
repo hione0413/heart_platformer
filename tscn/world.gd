@@ -3,6 +3,9 @@ extends Node2D
 
 @export var next_level: PackedScene
 
+var level_time = 0.0
+var start_level_msec = 0.0
+
 # collision ploygon 은 tile 추가하면서 삭제함 -> tilemap이 자체적으로 충돌판정(물리 레이어) 가지고 있음
 #@onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
 #@onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
@@ -11,6 +14,7 @@ extends Node2D
 @onready var start_in = %StartIn
 @onready var start_in_label = %StartInLabel
 @onready var animation_player = $AnimationPlayer
+@onready var level_timer_label = %LevelTimerLabel
 
 
 # My Plan
@@ -27,7 +31,7 @@ extends Node2D
 #11: UI Theme
 #12: Wall jump fix
 #13: game start countdown 23/10/15 finish
-#14: Level Timer 23/10/15 finish
+#14: Level Timer 23/10/16 finish
 
 
 
@@ -46,14 +50,25 @@ func _ready():
 	
 	start_in.visible = false
 	
-
-func show_level_completed():
-	level_completed.show()
-
-	get_tree().paused = true
+	# 게임 시작까지 걸린 시간
+	start_level_msec = Time.get_ticks_msec()
 	
-	# 레벨 클리어 후 잠시 멈춤
-	await get_tree().create_timer(0.5).timeout
+	
+func _process(delta):
+	# 게임 시작 후 시간 계산
+	level_time = Time.get_ticks_msec() - start_level_msec
+	level_timer_label.text = str(level_time / 1000.0)
+
+
+func retry():
+	await LevelTransition.fade_to_black()
+	get_tree().paused = false
+#	var current_level = load(scene_file_path)
+	get_tree().change_scene_to_file(scene_file_path)
+
+
+func go_to_next_level():
+	print('go_to_next_level')
 	#   다음 레벨 없으면 return
 	if not next_level is PackedScene: return
 	
@@ -62,7 +77,18 @@ func show_level_completed():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(next_level)
 	
+
+func show_level_completed():
+	level_completed.show()
+#	level_completed.retry_button.grab_focus()
+	level_completed.next_level_button.grab_focus()
+	get_tree().paused = true # 레벨 클리어 후 멈춤
 	
-#	get_tree().paused = true
+	
+func _on_level_completed_retry():
+	retry()
 
 
+func _on_level_completed_next_level():
+	# level_completed 가 가진 next_level(button) 시그널에서 신호를 받는다
+	go_to_next_level()

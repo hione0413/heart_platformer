@@ -5,6 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://ml1pnkwnmumt" path="res://LevelCompleted/level_completed.tscn" id="5_r2paw"]
 [ext_resource type="PackedScene" uid="uid://iufp2ei8lko5" path="res://Tiles/level_tile_map.tscn" id="6_o3eyx"]
 
+[sub_resource type="Animation" id="Animation_oqwoi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/StartIn/CenterContainer/StartInLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Start in: 3"]
+}
+
 [sub_resource type="Animation" id="Animation_e7bmg"]
 resource_name = "countdown"
 length = 3.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": ["Start in: 3", "Start in: 2", "Start in: 1"]
-}
-
-[sub_resource type="Animation" id="Animation_oqwoi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/StartIn/CenterContainer/StartInLabel:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Start in: 3"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5op02"]
@@ -76,11 +76,17 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start in: 3"
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 6.0
+offset_bottom = 8.0
 grow_horizontal = 2
+
+[node name="LevelTimerLabel" type="Label" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+vertical_alignment = 1
 
 [node name="LevelTileMap" parent="." instance=ExtResource("6_o3eyx")]
 
@@ -90,3 +96,6 @@ autoplay = "countdown"
 libraries = {
 "": SubResource("AnimationLibrary_5op02")
 }
+
+[connection signal="next_level" from="CanvasLayer/LevelCompleted" to="." method="_on_level_completed_next_level"]
+[connection signal="retry" from="CanvasLayer/LevelCompleted" to="." method="_on_level_completed_retry"]
